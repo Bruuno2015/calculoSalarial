@@ -2,6 +2,10 @@ var inss;
 var salarioLiquido;
 var deducao;
 var irrf;
+var primeiraFaixa;
+var segundaFaixa;
+var terceiraFaixa;
+var quartaFaixa;
 
 function baseInss(salario, descontos) {
     if (salario <= 1412) {
@@ -18,6 +22,13 @@ function baseInss(salario, descontos) {
     } else if (salario >= 4000.04 && salario <= 7786.02) {
         deducao = 181.18
         inss = (salario * 0.14) - deducao;
+        salarioLiquido = salario - inss - descontos;
+    } else if (salario > 7786.02) {
+        primeiraFaixa = 105.90
+        segundaFaixa = (2666.68 - 1412) * 0.09
+        terceiraFaixa = (4000.03 - 2666.69) * 0.12
+        quartaFaixa = (7786.02 - 4000.04) * 0.14
+        inss = primeiraFaixa + segundaFaixa + terceiraFaixa + quartaFaixa
         salarioLiquido = salario - inss - descontos;
     }
 }
@@ -65,4 +76,9 @@ document.getElementById('submit').addEventListener('click', function (event) {
     document.getElementById('irrf_output').innerText = irrf === "Isento" ? irrf : irrf.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
     document.getElementById('salarioLiquido_output').innerText = salarioLiquido.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
+    document.getElementById('salario_output').style.color = salario < 0 ? 'red' : 'blue';
+    document.getElementById('descontos_output').style.color = 'red' ;
+    document.getElementById('inss_output').style.color = 'red';
+    document.getElementById('irrf_output').style.color = irrf > 0 ? 'red' : 'blue';
+    document.getElementById('salarioLiquido_output').style.color = salarioLiquido < 0 ? 'red' : 'blue';
 });

@@ -1,0 +1,98 @@
+body {
+    font: normal Arial;
+    margin: 5px;
+  }
+  
+  h1 {
+    font-size: 40px;
+  }
+  
+  .title-page {
+    text-align: center;
+  }
+  
+  .tabela {
+    width: 40%;
+    margin-top: 22%;
+    margin-left: 30%;
+    border-collapse: collapse;
+    border-style: 5px groove; /* Remova a definição de border-color */
+  }
+  
+
+  
+  th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+    padding: 1px;
+    text-align: center;
+    border-bottom: 2px 2px solid #ddd;
+  }
+  
+  .tabela td {
+    width: 60px;
+    border: 1px; /* Mantenha a propriedade border */
+    padding: 8px;
+    border-bottom: none;
+    color: black; /* Defina a cor do texto para preto (opcional) */
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .info {
+    text-align: center;
+    width: 30%;
+    margin-right: 30%;
+  }
+
+  .informacoes {
+    margin-top: 5%;
+    width: 60%;
+    float: right;
+    align-items: left;
+    text-align: center;
+  }
+  
+  input {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    width: 85%;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid;
+    margin-bottom: 1px;
+    border-radius: 10px;
+  }
+  
+  button {
+    width: 12%;
+  }
+  
+  button {
+    margin-top: 10px;
+    margin-right: 65%;
+  }
+  
+  .botao {
+    font-size: large;
+    border: solid 1px blue;
+    border-radius: 20px;
+    color: blue;
+    background-color: white;
+    transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
+  }
+  
+  .botao:hover {
+    background-color: blue;
+    color: white;
+    transform: scale(1.2)
+  }
+  
+  .liquido {
+    font-weight: bold;
+  }
+  
