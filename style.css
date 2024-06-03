@@ -12,8 +12,10 @@ body {
   }
   
   .tabela {
+    font-family: arial;
+    font-size: 20px;
     width: 40%;
-    margin-top: 22%;
+    margin-top: 27%;
     margin-left: 30%;
     border-collapse: collapse;
     border-style: 5px groove; /* Remova a definição de border-color */
@@ -44,23 +46,25 @@ body {
   
   .info {
     text-align: center;
-    width: 30%;
+    width: 40%;
     margin-right: 30%;
   }
 
   .informacoes {
+    font-family: arial;
+    font-size: 20px;
     margin-top: 5%;
-    width: 60%;
+    width: 64%;
     float: right;
     align-items: left;
     text-align: center;
   }
-  
-  input {
+
+  .nome {
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    width: 85%;
+    font-family: arial;
+    font-size: 20px;
+    width: 180%;
     margin: 0 auto;
     padding: 10px;
     border: 1px solid;
@@ -68,13 +72,29 @@ body {
     border-radius: 10px;
   }
   
+  .valores {
+    text-align: center;
+    font-family: arial;
+    font-size: 20px;
+    width: 180%;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid;
+    margin-bottom: 1px;
+    border-radius: 10px;
+  }
+
+  .valeTransp {
+        width: 1000px;
+  }
+
   button {
-    width: 12%;
+    width: 13%;
   }
   
   button {
     margin-top: 10px;
-    margin-right: 65%;
+    margin-right: 57%;
   }
   
   .botao {

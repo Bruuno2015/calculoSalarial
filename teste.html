@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formatar Salário</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+    <style>
+        input[type='text'] {
+            text-align: right;
+            font-size: 20px;
+            font-family: arial;
+        }
+
+        input {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <label for="money">Salário:</label>
+        <input type="text" size="18" name="money" class="custom4" id="money" placeholder="R$0,00" required>
+    </form>
+
+    <script>
+        $(document).ready(function () {
+            $(function () {
+                $('.custom4').maskMoney();
+            })
+
+            
+        })
+    </script>
+</body>
+
+</html>

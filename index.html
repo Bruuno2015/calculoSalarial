@@ -1,79 +1,101 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+</head>
 
-    <body>
-        <h1 class="title-page">Cálculo de Salário Líquido</h1>
-        <div class="informacoes">
-            <table class="info" name='informacoes_salario' id="informacoes_salario">
-                <thead>
-                    <tr>
-                        <th colspan="4">Informações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Nome:</td>
-                        <td><input type="text" size="18" name="nome"></td>
-                    </tr>
-                    <tr>
-                        <td>Salário:</td>
-                        <td><input type="text" size="18" name="salario" placeholder="R$0,00" required></td>
-                    </tr>
-                    <tr>
-                        <td>Descontos:</td>
-                        <td><input type="text" size="18" name="descontos" placeholder="R$0,00"></td>
-                    </tr>
-            </table>
-            <button id="submit" class="botao">Calcular</button>
-        </div>
-        <div id="table-salario">
-            <table class="tabela">
-                <thead>
-                    
-                    <tr>
-                        <th style="text-align: center;" colspan="1">Descrição</th>
-                        <th style="text-align: center;" colspan="1">Valores</th>
-                    </tr>
-                </thead>
+<body>
+    <h1 class="title-page">Cálculo de Salário Líquido</h1>
 
-                <tbody>
-                    <tr>
-                        <td>Nome:</td>
-                        <td><span id="nome_output"></span></td>
-                    </tr>
-                    <tr>
-                        <td>Salário:</td>
-                        <td id="salario_output"></td>
-                    </tr>
-                    <tr>
-                        <td>Descontos:</td>
-                        <td id="descontos_output"></td>
-                    </tr>
-                    <tr>
-                        <td>INSS:</td>
-                        <td id="inss_output"></td>
-                    </tr>
-                    <tr>
-                        <td>IRRF:</td>
-                        <td id="irrf_output"></td>
-                    </tr>
-                    <tr>
-                        <td class="liquido">Salário Líquido:</td>
-                        <td id="salarioLiquido_output" class="liquido"></td>
-                    </tr>
-                </tbody>
+    <div class="informacoes">
+        <table class="info" name='informacoes_salario' id="informacoes_salario">
+            <thead>
+                <tr>
+                    <th colspan="4">Informações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Nome:</td>
+                    <td><input type="text" size="18" name="nome" class="nome"></td>
+                </tr>
+                <tr>
+                    <td>Salário:</td>
+                    <td><input type="text" size="18" name="salario" class="valores" placeholder="R$0,00" required
+                            value=""></td>
+                </tr>
+                <tr>
+                    <td>Descontos:</td>
+                    <td><input type="text" size="20" name="descontos" class="valores" placeholder="R$0,00" ></td>
+                </tr>
+                <tr>
+                    <td>Vale Transporte:</td>
+                    <td class="valeTransp" colspan="2"><input type="radio"  name="vale_transp" value="sim">Sim</td>
+                    <td class="valeTransp" colspan="2"><input type="radio"  name="vale_transp" value="nao">Não</td>
+                </tr>
+        </table>
+        <button id="submit" class="botao">Calcular</button>
+    </div>
+    <div id="table-salario">
+        <table class="tabela">
+            <thead>
+                <tr>
+                    <th style="text-align: center;" colspan="1">Descrição</th>
+                    <th style="text-align: center;" colspan="1">Valores</th>
+                </tr>
+            </thead>
 
-            </table>
-        </div>
-        <script src="calculo.js"></script>
+            <tbody>
+                <tr>
+                    <td>Nome:</td>
+                    <td><span id="nome_output"></span></td>
+                </tr>
+                <tr>
+                    <td>Salário:</td>
+                    <td id="salario_output"></td>
+                </tr>
+                <tr>
+                    <td>Descontos:</td>
+                    <td id="descontos_output"></td>
+                </tr>
+                <tr>
+                    <td>Vale Transporte:</td>
+                    <td id="vt_output"></td>
+                </tr>
+                <tr>
+                    <td>INSS:</td>
+                    <td id="inss_output"></td>
+                </tr>
+                <tr>
+                    <td>IRRF:</td>
+                    <td id="irrf_output"></td>
+                </tr>
+                <tr>
+                    <td class="liquido">Salário Líquido:</td>
+                    <td id="salarioLiquido_output" class="liquido"></td>
+                </tr>
+            </tbody>
 
-    </body>
+        </table>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $(function () {
+                $('.valores').maskMoney({
+                    thousands: '.',
+                    decimal: ','
+                });
+            })
+        })
+    </script>
+    <script src="calculo.js"></script>
+
+</body>
 
 </html>
