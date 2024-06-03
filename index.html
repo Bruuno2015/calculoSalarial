@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            body {
+                font: normal 20pt Arial;
+            }
+
+            .title-page {
+                text-align: center;
+            }
+
+            .tabela,
+            th,
+            td {
+                border-collapse: collapse;
+                padding: 10px;
+                text-align: left;
+                border: 1px solid rgb(160 160 160);
+            }
+
+            th {
+                text-align: center;
+                background-color: lightgray;
+            }
+
+            .informacoes {
+                float: right;
+                align-items: left;
+                text-align: center;
+            }
+
+            input {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 12px;
+                width: 90%;
+                margin: 0 auto;
+                padding: 10px;
+                border: 1px solid;
+                margin-bottom: 1px;
+                border-radius: 10px;
+            }
+
+            button {
+                width: 75%;
+            }
+            .botao {
+                font-size: large;
+                border: solid 1px blue;
+                border-radius: 20px;
+                color: blue;
+                background-color: white;
+                transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
+            }
+
+            .botao:hover {
+                background-color: blue;
+                color: white;
+                transform: scale(1.2)
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1 class="title-page">Cálculo de Salário Líquido</h1>
+        <div class="informacoes">
+            <table class="info" name='informacoes_salario' id="informacoes_salario">
+                <thead>
+                    <tr>
+                        <th colspan="4">Informações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nome:</td>
+                        <td><input type="text" size="18" name="nome"></td>
+                    </tr>
+                    <tr>
+                        <td>Salário:</td>
+                        <td><input type="text" size="18" name="salario"></td>
+                    </tr>
+                    <tr>
+                        <td>Descontos:</td>
+                        <td><input type="text" size="18" name="descontos"></td>
+                    </tr>
+            </table>
+            <button id="submit" class="botao">Calcular</button>
+        </div>
+        <div id="table-salario">
+            <table class="tabela">
+                <thead>
+                    <tr>
+                        <th colspan="4">Cálculo de Salário</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Nome:</td>
+                        <td><span id="nome_output"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Salário:</td>
+                        <td id="salario_output"></td>
+                    </tr>
+                    <tr>
+                        <td>Descontos:</td>
+                        <td id="descontos_output"></td>
+                    </tr>
+                    <tr>
+                        <td>INSS:</td>
+                        <td id="inss_output"></td>
+                    </tr>
+                    <tr>
+                        <td>IRRF:</td>
+                        <td id="irrf_output"></td>
+                    </tr>
+                    <tr>
+                        <td>Salário Líquido:</td>
+                        <td id="salarioLiquido_output"></td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+        <script src="calculo.js"></script>
+
+    </body>
+
+</html>
