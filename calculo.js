@@ -21,15 +21,15 @@ function baseInss(salario, descontos) {
     if (salario <= 1412) {
         inss = salario * 0.075;
         salarioLiquido = salario - inss - descontos - valeTransporte;
-    } else if (salario >= 1412.01 && salario <= 2666.68) {
+    } else if (salario >= 1412.01 || salario <= 2666.68) {
         deducao = 21.18
         inss = (salario * 0.09) - deducao;
         salarioLiquido = salario - inss - descontos - valeTransporte;
-    } else if (salario >= 2666.68 && salario <= 4000.03) {
+    } else if (salario >= 2666.68 || salario <= 4000.03) {
         deducao = 101.18;
         inss = (salario * 0.12) - deducao;
         salarioLiquido = salario - inss - descontos - valeTransporte;
-    } else if (salario >= 4000.04 && salario <= 7786.02) {
+    } else if (salario >= 4000.04 || salario <= 7786.02) {
         deducao = 181.18
         inss = (salario * 0.14) - deducao;
         salarioLiquido = salario - inss - descontos - valeTransporte;
@@ -44,24 +44,24 @@ function baseInss(salario, descontos) {
 }
 
 function baseIrrf(salario, descontos) {
-    if (salario <= 2259.20) {
-        irrf = "Isento"
-        salarioLiquido = salario - inss - descontos - Number(0.00) - valeTransporte;
-    } else if (salario >= 2259.21 && salario <= 2826.65) {
-        deducao = 169.44
+    if (salario <= 2459.44) {
+        irrf = "Isento";
+        salarioLiquido = salario - inss - descontos - 0.00 - valeTransporte;
+    } else if (salario >= 2459.44 || salario <= 2826.65) {
+        deducao = 169.44;
         irrf = (salario - inss) * 0.075 - deducao;
         salarioLiquido = salario - inss - descontos - irrf - valeTransporte;
-    } else if (salario >= 2826.66 && salario <= 3751.05) {
-        deducao = 381.44
+    } else if (salario >= 2826.66 || salario <= 3751.05) {
+        deducao = 381.44;
         irrf = (salario - inss) * 0.15 - deducao;
-        salarioLiquido = salario - inss - descontos - irrf - valeTransporte
-    } else if (salario >= 3751.06 && salario <= 4664.68) {
-        deducao = 662.77
+        salarioLiquido = salario - inss - descontos - irrf - valeTransporte;
+    } else if (salario >= 3751.06 || salario <= 4664.68) {
+        deducao = 662.77;
         irrf = (salario - inss) * 0.225 - deducao;
-        salarioLiquido = salario - inss - descontos - irrf - valeTransporte
+        salarioLiquido = salario - inss - descontos - irrf - valeTransporte;
     }
     else if (salario >= 4664.68) {
-        deducao = 896.00
+        deducao = 896.00;
         irrf = (salario - inss) * 0.275 - deducao;
         salarioLiquido = salario - inss - descontos - irrf - valeTransporte;
     }
@@ -77,6 +77,9 @@ document.addEventListener('DOMContentLoaded', function () {
         var vtString = document.querySelector('input[name="vale_transp"]:checked').value;
         var salario = parseFloat(salarioString.replace('.', '').replace(',', '.'));
         var descontos = parseFloat(descontosString.replace('.', '').replace(',', '.'));
+        if (!descontosString) {
+            descontos = 0
+        };
 
         // Chamando as funções de cálculo
         descontoVT(salario, descontos, vtString);
@@ -97,4 +100,5 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('inss_output').style.color = 'red';
         document.getElementById('irrf_output').style.color = irrf > 0 ? 'red' : 'blue';
         document.getElementById('salarioLiquido_output').style.color = salarioLiquido < 0 ? 'red' : 'blue';
-    })});
+    })
+});
